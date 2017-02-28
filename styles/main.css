@@ -85,13 +85,12 @@ body {
         padding-right: 1rem;
     }
     
-    .column.full { with: 100%; }
+    .column.full { width: 100%; }
     .column.two-thirds { width: 66.7%; }
     .column.half { width: 50%;}
     .column.fourth { width: 25%; }
     .column.flow-opposite { float: right; }
 }
-
 
 @media (min-width: 1024px) {
     html { font-size: 120%; }
