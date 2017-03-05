@@ -1,3 +1,6 @@
+var clickRotation = [albumMarconi, albumJordoni, albumPicasso];
+var currIndex = 1;
+
 var albumPicasso = {
     title: 'The Colors',
     artist: 'Pablo Picasso',
@@ -28,6 +31,21 @@ var albumMarconi = {
     ]
 };
 
+var albumJordoni = {
+    title: 'The Rocket',
+    artist: 'Jordoni Lamborni',
+    label: 'Yes',
+    year: '2018',
+    albumArtUrl: 'http://cdn.iphonephotographyschool.com/wp-content/uploads/iPhone-Photos-Abstract-Art-16.jpg',
+    songs: [
+        { title: 'Never Never', duration: '1:51' },
+        { title: 'Boom Boom', duration: '2:22' },
+        { title: 'Say Wha?', duration: '3:41'},
+        { title: 'Make America Code Again', duration: '5:14' },
+        { title: 'Pop Pop', duration: '3:22'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">'
@@ -40,7 +58,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
-var setCurrentAlbum = function(album) {
+function setCurrentAlbum (album) {
     
     var albumTitle = document.getElementsByClassName('album-view-title')[0];
     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
@@ -61,5 +79,13 @@ var setCurrentAlbum = function(album) {
 };
 
 window.onload = function() {
-    setCurrentAlbum(albumMarconi);
+    setCurrentAlbum(albumPicasso);
 };
+
+function albumRotate () {
+    currIndex = (currIndex+1)%(clickRotation.length);
+    setCurrentAlbum(clickRotation[currIndex]);
+}
+
+
+
